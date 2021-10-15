@@ -1,2 +1,8 @@
-# fase3-equipo4
-Repo del proyecto del equpo 4 para la 3ra fase del programa BEDUxSantander Fullstack Javascript
+# React Fundamentals | Equipo 4 | BEDU Fase 3
+## Integrantes:
+- Estefanía Aguilar Arroyo
+- Hugo Joshua Gasperin Castelan
+- Juan Negrete Castañeda
+- Fabiola Rasgado Celaya
+- Ángel Esteban Torres Trejo
+
