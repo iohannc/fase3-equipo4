@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.nav`
     background-color: #000;
+    width:100%;
 `;
 export const Logo = styled.img`
     width: 220px;
@@ -23,7 +24,7 @@ export const NavbarItems = styled.div`
         margin: .5rem;
 
         :hover {
-            color: red;
+            color: var(--fontRedEmphasis);
             background-color: #000;
         }
     }

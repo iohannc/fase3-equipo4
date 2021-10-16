@@ -6,12 +6,12 @@ import { Wrapper, Logo, NavbarItems, Content } from "./Header.styles";
 
 const Header = () => {
   return (
-    <Wrapper className="navbar is-fixed-top">
+    <Wrapper className="navbar">
     <Content className="container">
       <div className="navbar-brand">
         <Logo className="navbar-item" src={logo} alt="Logo" />
       </div>
-      <NavbarItems className="navbar-menu is-active">
+      <NavbarItems className="navbar-menu">
         <div className="navbar-end">
           <a href className="navbar-item">
             ENTRAR
