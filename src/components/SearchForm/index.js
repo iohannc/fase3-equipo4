@@ -7,16 +7,16 @@ const SearchForm = (props) => {
         <Form className="field has-addons">
         <div className="control is-expanded has-icons-left">
             <input
-              class="input"
+              className="input"
               type="text"
               placeholder="Iniciar una búsqueda"
             />
-            <span class="icon is-small is-left">
-              <i class="fas fa-search"></i>
+            <span className="icon is-small is-left">
+              <i className="fas fa-search"></i>
             </span>
           </div>
-          <div class="control">
-            <button type="submit" class="button is-info">
+          <div className="control">
+            <button type="submit" className="button is-info">
               Buscar
             </button>
           </div> 
