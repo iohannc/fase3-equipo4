@@ -1,10 +1,10 @@
 import React from 'react';
 import {Title} from './Title.styles';
 
-const CatTitle = () =>{
+const CatTitle = (props) =>{
     return(
 
-            <Title>CATEGORÍAS</Title>
+            <Title><h2>{props.name}</h2></Title>
 
     );
 }
