@@ -9,12 +9,12 @@ const Categories = (props) =>{
     return(
         <CategoriesS>
             {(cate||[]).slice(0,9).map(item => <a key={item.toString()}>{item}</a>)}
-            <a>... ver más</a>
+            <a>...ver más</a>
         </CategoriesS>
     
     );
 }
 
 
-//Categories.propTypes = {cat :PropTypes.array.isRequired};
+Categories.propTypes = {data :PropTypes.array.isRequired};
 export default Categories;

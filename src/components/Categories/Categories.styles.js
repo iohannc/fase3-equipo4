@@ -8,5 +8,8 @@ export const CategoriesS= styled.div`
         color: white;
         font-family: 'Roboto', sans-serif;
         text-align:center;
+        :hover{
+            color: var(--fontRedEmphasis);
+        }
     }
 `;
