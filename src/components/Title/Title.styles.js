@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Title = styled.div`
 display:flex;
 justify-content: center;
+margin-top:auto;
         h2{
         display: inline;
         color: white;
