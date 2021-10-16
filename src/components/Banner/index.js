@@ -9,6 +9,7 @@ import {
   Categories,
 } from "./Banner.styles";
 import vampiro from "../../assets/images/vampiro.jpg";
+import CatTitle from "../Title"
 
 const Banner = () => {
   return (
@@ -19,6 +20,7 @@ const Banner = () => {
       <RightSideBanner>
         <h1>BIENVENIDO</h1>
         <SearchForm />
+        <CatTitle name = "CATEGORÍAS"/>
         <Categories />
       </RightSideBanner>
     </Wrapper>
