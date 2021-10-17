@@ -5,12 +5,12 @@ import {StoriesS} from "./Stories.styles";
 const ItemList = ({ item }) => {
     return (
         <>
-            <h2> {item.titulo} </h2>
+            <h2>{item.titulo}</h2>
             <p>
                 { item.texto }
             <a>Leer completa</a>
             </p>
-            <br></br>
+            <hr />
         </>
     );
 };

@@ -5,15 +5,16 @@ display: grid;
 grid-template-columns: repeat(1,auto);
 margin-top:10px;
 padding: 20px 0px 30px 0px;
+text-align: justify;
 h2 {
     font-family: 'Roboto', sans-serif;
     text-align: left;
     color: #fff;
+    font-weight: bold;
     font-size: 1rem;
   }
 p {
     font-family: 'Roboto', sans-serif;
-    text-align: left;
     color: #fff;
     font-size: 0.8rem;
   }
@@ -21,8 +22,7 @@ a{
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 0.8rem;
-    text-align:center;
+    font-size: 0.8rem; 
     :hover{
         color: var(--fontRedEmphasis);
     }

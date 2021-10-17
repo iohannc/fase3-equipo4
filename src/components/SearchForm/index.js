@@ -16,7 +16,7 @@ const SearchForm = (props) => {
             </span>
           </div>
           <div className="control">
-            <button type="submit" className="button is-info">
+            <button type="submit" className="button is-danger">
               Buscar
             </button>
           </div> 

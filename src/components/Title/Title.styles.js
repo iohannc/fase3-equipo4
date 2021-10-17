@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const Title = styled.div`
 display:flex; 
-justify-content: ${(props) => props.align==='center'?'center':'left'};
-justify-content: center;
 margin-top:auto;
         h2{
         display: inline;
@@ -15,4 +13,3 @@ margin-top:auto;
         padding-bottom: 3px;
         }
 `;
-//text-decoration: underline #E41212;
