@@ -1,8 +1,8 @@
-import styled from "styled-components";
-
+import styled from "styled-components";      
 
 export const Title = styled.div`
-display:flex;
+display:flex; 
+justify-content: ${(props) => props.align==='center'?'center':'left'};
 justify-content: center;
 margin-top:auto;
         h2{
