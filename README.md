@@ -4,7 +4,7 @@
 - Hugo Joshua Gasperin Castelan
 - Juan Negrete Castañeda
 - Fabiola Rasgado Celaya
-- Ángel Esteban Torres Trejoo
+- Ángel Esteban Torres Trejo
 
 ## Especificaciones y Mockup
 ### Hecho con:
