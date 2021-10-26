@@ -1,8 +1,8 @@
 import React from "react";
 // Components
-import Header from "./components/Header";
-import Banner from "./components/Banner";
-import Stories from "./components/Stories";
+import Header from "./components/Header/index";
+import Banner from "./components/Banner/index";
+import Stories from "./components/Stories/index";
 
 import { GlobalStyle } from "./GlobalStyle";
 
