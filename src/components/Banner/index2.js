@@ -3,10 +3,10 @@ import React from "react";
 // Styles
 import { Wrapper, BannerCentered } from "./Banner.styles";
 
-const Banner = () => {
+const Banner = (props) => {
   return (
     <BannerCentered>
-      <h1>BIENVENIDO</h1>
+      <h1>{props.title}</h1>
     </BannerCentered>
   );
 };

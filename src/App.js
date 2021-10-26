@@ -2,15 +2,16 @@ import React from "react";
 // Components
 import init from "./Init";
 import login from "./login";
+import Register from "./components/Register/index";
 // Styles
-import { GlobalStyle } from "./GlobalStyle";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
     <>
       <BrowserRouter>
         <Route exact path="/" render={init} />
         <Route exact path="/login" render={login} />
+        <Route exact path="/register" render={Register} />
       </BrowserRouter>
     </>
   );

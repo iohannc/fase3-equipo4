@@ -32,4 +32,9 @@ a{
     font-size: 0.8rem; 
     :hover{
         color: var(--fontRedEmphasis);
-    }`;
+    };
+h3{
+    font-family: 'Roboto', sans-serif;
+    color: #E41212;
+    font-size: 0.8rem;
+}`;

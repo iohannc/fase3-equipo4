@@ -14,7 +14,7 @@ const Header = () => {
       <div className="navbar-end">
         <div className="navbar-item">
           <Link to="/login/">ENTRAR</Link>
-          <Link to="/">REGISTRARSE</Link>
+          <Link to="/register/">REGISTRARSE</Link>
         </div>
       </div>
     </Wrapper>

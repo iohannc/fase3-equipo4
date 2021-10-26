@@ -4,12 +4,12 @@ import Header from "./components/Header/index2";
 import Banner from "./components/Banner/index2";
 import FormSimple from "./components/FormSimple/";
 import { GlobalStyle, Columnas, H2 } from "./GlobalStyle";
-
+import { Link } from "react-router-dom";
 function login() {
   return (
     <>
       <Header />
-      <Banner />
+      <Banner title="BIENVENIDOS" />
       <Columnas className="columns">
         <div className="column is-one-third"></div>
         <div className="column is-one-third">
@@ -32,7 +32,7 @@ function login() {
       <div className="columns is-centered ">
         <H2 className="column is-narrow">
           <h2>¿Nuevo por aqui?</h2>
-          <a>Crear una cuenta</a>
+          <Link to="/register/">Crear una cuenta</Link>
         </H2>
       </div>
       <GlobalStyle />
