@@ -10,7 +10,7 @@ export const Wrapper = styled.nav`
 
   a {
     color: #fff;
-    margin: 5rem;
+    margin: 1rem;
 
     :hover {
       color: var(--fontRedEmphasis);
@@ -42,8 +42,8 @@ export const Wrapper2 = styled.nav`
 export const Logo = styled.img`
   width: 150px;
   height: 130px;
-  margin-top: 2rem;
-  margin-left: 5rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
 `;
 export const Logo2 = styled.img`
   width: 13%;
