@@ -1,19 +1,18 @@
-import React from 'react';
+import React from "react";
 // Components
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Stories from './components/Stories';
+import init from "./Init";
+import login from "./login";
 // Styles
 import { GlobalStyle } from "./GlobalStyle";
-
+import { BrowserRouter, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-    <Header />
-    <Banner />
-    <Stories />
-    <GlobalStyle />
-    </div>
+    <>
+      <BrowserRouter>
+        <Route exact path="/" render={init} />
+        <Route exact path="/login" render={login} />
+      </BrowserRouter>
+    </>
   );
 }
 

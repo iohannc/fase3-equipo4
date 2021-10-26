@@ -19,11 +19,21 @@ export const RightSideBanner = styled.div`
   flex-direction: column;
 
   h1 {
-      font-family: 'Creepster', sans-serif;
-      text-align: center;
-      color: #fff;
-      font-size: 6rem;
-      letter-spacing: 0.245em;
+    font-family: "Creepster", sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 6rem;
+    letter-spacing: 0.245em;
+  }
+`;
+export const Banners = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: "Creepster", sans-serif;
+    text-align: center;
+    color: #fff;
   }
 `;
 
