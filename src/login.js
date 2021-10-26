@@ -10,6 +10,9 @@ function login() {
     <>
       <Header />
       <Banner title="BIENVENIDOS" />
+      <H2>
+        <h2>INICIAR SESIÓN</h2>
+      </H2>
       <Columnas className="columns">
         <div className="column is-one-third"></div>
         <div className="column is-one-third">
@@ -25,7 +28,7 @@ function login() {
       <div className="columns is-centered">
         <div className="column is-narrow">
           <button className="button is-rounded is-hovered is-small is-centered">
-            Iniciar sesión
+            Entrar
           </button>
         </div>
       </div>

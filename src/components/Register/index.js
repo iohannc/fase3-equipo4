@@ -5,17 +5,17 @@ import Banner from "../Banner/index2";
 import FormSimple from "../FormSimple";
 import { GlobalStyle, Columnas, H2 } from "../../GlobalStyle";
 import { Link } from "react-router-dom";
-function register1() {
+function reg() {
   return (
     <>
       <Header />
       <Banner title="Crear cuenta" />
       <H2>
-        <h2>Acerca de ti</h2>
+        <h3>Acerca de ti</h3>
       </H2>
       <Columnas className="columns is-centered">
         <div className="column is-one-third is-narrow">
-          <FormSimple placeholder="Nombre(s)" />
+          <FormSimple className="is-small" placeholder="Nombre(s)" />
         </div>
       </Columnas>
       <Columnas className="columns is-centered">
@@ -29,7 +29,7 @@ function register1() {
         </div>
       </Columnas>
       <H2>
-        <h2>Fecha de nacimiento</h2>
+        <h3 className="redtitle">Fecha de nacimiento</h3>
       </H2>
       <Columnas className="columns is-centered">
         <div className="column is-one-fifth is-narrow">
@@ -45,7 +45,7 @@ function register1() {
       <div className="columns is-centered">
         <div className="column is-narrow">
           <button className="button is-rounded is-hovered is-small is-centered">
-            Continuar
+            <Link to="/register/s1">Continuar</Link>
           </button>
         </div>
       </div>
@@ -60,4 +60,4 @@ function register1() {
   );
 }
 
-export default register1;
+export default reg;

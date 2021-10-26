@@ -4,7 +4,7 @@ import logo from "../../assets/images/logo.jpg";
 // Styles
 import { Wrapper, Logo } from "./Header.styles";
 import { Link } from "react-router-dom";
-
+import { Limit } from "../../GlobalStyle";
 const Header = () => {
   return (
     <Wrapper role="navigation" className="navbar">
@@ -13,8 +13,14 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          <Link to="/login/">ENTRAR</Link>
-          <Link to="/register/">REGISTRARSE</Link>
+          <Limit>
+            <Link to="/login/">ENTRAR</Link>
+          </Limit>
+        </div>
+        <div className="navbar-item">
+          <Limit>
+            <Link to="/register/">REGISTRARSE</Link>
+          </Limit>
         </div>
       </div>
     </Wrapper>

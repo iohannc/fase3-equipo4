@@ -4,7 +4,12 @@ import React from "react";
 const FormSimp = (props) => {
   return (
     <div className="field control">
-      <input className="input" type="text" placeholder={props.placeholder} />
+      <input
+        className="input is-small"
+        type="text"
+        placeholder={props.placeholder}
+        type={props.type}
+      />
     </div>
   );
 };
