@@ -26,14 +26,16 @@ export const RightSideBanner = styled.div`
     letter-spacing: 0.245em;
   }
 `;
-export const Banners = styled.div`
+export const BannerCentered = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin: 1.5%;
   h1 {
     font-family: "Creepster", sans-serif;
     text-align: center;
     color: #fff;
+    font-size: 3rem;
+    letter-spacing: 0.27em;
   }
 `;
 
