@@ -18,7 +18,11 @@ function reg() {
       </H2>
       <Columnas className="columns is-centered">
         <div className="column is-one-third is-narrow">
-          <FormSimple className="is-small" placeholder="Correo electrónico" />
+          <FormSimple
+            type="email"
+            className="is-small"
+            placeholder="Correo electrónico"
+          />
         </div>
       </Columnas>
       <Columnas className="columns is-centered">

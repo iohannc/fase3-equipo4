@@ -7,6 +7,7 @@ const FormSimp = (props) => {
       <input
         className="input is-small"
         type="text"
+        required
         placeholder={props.placeholder}
         type={props.type}
       />
