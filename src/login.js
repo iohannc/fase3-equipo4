@@ -6,6 +6,7 @@ import FormSimple from "./components/FormSimple/";
 import { GlobalStyle, Columnas, H2 } from "./GlobalStyle";
 import { Link } from "react-router-dom";
 function login() {
+  const url = "https://historiasdeterror.herokuapp.com/v1/usuarios/entrar";
   return (
     <>
       <Header />
