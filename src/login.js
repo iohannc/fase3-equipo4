@@ -14,12 +14,13 @@ function login() {
     let cuerpo = { password: `${pass.value}`, email: `${email.value}` };
     console.log(cuerpo);
     let result = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
       method: "POST",
-      body: cuerpo,
-      mode: "no-cors",
-      ContentType: "application/json"
-    }).then(async (res) => res).catch((err) => console.log(err));
-    console.log(result);
+      body: JSON.stringify(cuerpo),
+      // mode: "no-cors",
+    }).then(async (res) => await res.json()).then((res) => console.log(res)).catch((err) => console.log(err));
     return result;
   };
   // let entrar=(url)=>{
