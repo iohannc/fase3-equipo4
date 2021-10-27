@@ -5,20 +5,21 @@ import Banner from "./components/Banner/index2";
 import FormSimple from "./components/FormSimple/";
 import { GlobalStyle, Columnas, H2 } from "./GlobalStyle";
 import { Link } from "react-router-dom";
+
 function login() {
-  let entrar = () => {
+  const entrar = async () => {
     const url = "https://historiasdeterror.herokuapp.com/v1/usuarios/entrar";
     const pass = document.getElementById("pass");
     const email = document.getElementById("email");
-    let cuerpo = { password: `${pass}`, email: `${email}` };
-    let result = fetch(url, {
+    let cuerpo = { password: `${pass.value}`, email: `${email.value}` };
+    console.log(cuerpo);
+    let result = await fetch(url, {
       method: "POST",
       body: cuerpo,
       mode: "no-cors",
-      ContentType: "application/json",
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+      ContentType: "application/json"
+    }).then(async (res) => res).catch((err) => console.log(err));
+    console.log(result);
     return result;
   };
   // let entrar=(url)=>{
@@ -48,7 +49,7 @@ function login() {
       <div className="columns is-centered">
         <div className="column is-narrow">
           <button
-            onClick={console.log(entrar())}
+            onClick={entrar}
             className="button is-rounded is-hovered is-small is-centered"
           >
             Entrar
