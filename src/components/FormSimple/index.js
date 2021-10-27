@@ -9,6 +9,7 @@ const FormSimp = (props) => {
         type="text"
         required
         placeholder={props.placeholder}
+        id={props.id}
         type={props.type}
       />
     </div>

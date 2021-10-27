@@ -6,7 +6,26 @@ import FormSimple from "./components/FormSimple/";
 import { GlobalStyle, Columnas, H2 } from "./GlobalStyle";
 import { Link } from "react-router-dom";
 function login() {
-  const url = "https://historiasdeterror.herokuapp.com/v1/usuarios/entrar";
+  let entrar = () => {
+    const url = "https://historiasdeterror.herokuapp.com/v1/usuarios/entrar";
+    const pass = document.getElementById("pass");
+    const email = document.getElementById("email");
+    let cuerpo = { password: `${pass}`, email: `${email}` };
+    let result = fetch(url, {
+      method: "POST",
+      body: cuerpo,
+      mode: "no-cors",
+      ContentType: "application/json",
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    return result;
+  };
+  // let entrar=(url)=>{
+  //   fetch(url, {
+  //     method: 'POST',
+  //     headers: {'Authorization': "Bearer" + " " + token}
+  // }).then((result) => result.json())
   return (
     <>
       <Header />
@@ -17,18 +36,21 @@ function login() {
       <Columnas className="columns">
         <div className="column is-one-third"></div>
         <div className="column is-one-third">
-          <FormSimple placeholder="Usuario o correo electronico" />
+          <FormSimple id="email" placeholder="Correo electronico" />
         </div>
       </Columnas>
       <Columnas className="columns">
         <div className="column is-one-third"></div>
         <div className="column is-one-third">
-          <FormSimple placeholder="Contraseña" />
+          <FormSimple type="password" id="pass" placeholder="Contraseña" />
         </div>
       </Columnas>
       <div className="columns is-centered">
         <div className="column is-narrow">
-          <button className="button is-rounded is-hovered is-small is-centered">
+          <button
+            onClick={console.log(entrar())}
+            className="button is-rounded is-hovered is-small is-centered"
+          >
             Entrar
           </button>
         </div>
