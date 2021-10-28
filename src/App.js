@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Route exact path="/" render={init} />
-        <Route exact path="/login" render={login} />
+        <Route exact path="/login" component={login} />
         <Route exact path="/register" component={reg} />
         <Route exact path="/register/s1" component={reg1} />
         <Route exact path="/register/s2" component={reg2} />

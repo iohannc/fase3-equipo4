@@ -4,7 +4,7 @@ import Header from "../Header/index2";
 import Banner from "../Banner/index2";
 import FormSimple from "../FormSimple";
 import { GlobalStyle, Columnas, H2 } from "../../GlobalStyle";
-import { Link, useHistory, Prompt } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 function RegStep1() {
   let history = useHistory();
   const [isBlocking, setIsBlocking] = React.useState(true);

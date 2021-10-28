@@ -4,15 +4,16 @@ import Header from "./components/Header/index2";
 import Banner from "./components/Banner/index2";
 import FormSimple from "./components/FormSimple/";
 import { GlobalStyle, Columnas, H2 } from "./GlobalStyle";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-function login() {
+function LoginInit() {
+  let history = useHistory();
   const entrar = async () => {
     const url = "https://historiasdeterror.herokuapp.com/v1/usuarios/entrar";
     const pass = document.getElementById("pass");
     const email = document.getElementById("email");
     let cuerpo = { password: `${pass.value}`, email: `${email.value}` };
-    console.log(cuerpo);
+    // console.log(cuerpo);
     let result = {}
     await fetch(url, {
       headers: {
@@ -26,8 +27,12 @@ function login() {
       // console.log(res)
     }).catch((err) => console.log(err));
     // const value = document.cookie.split(';').map(a => console.log(a));
+    let a = result.token;
     document.cookie = `token=${result.token}`;
     document.cookie = `user=${result.username}`;
+    if (a) {
+      history.replace("/")
+    }
   };
   // let entrar=(url)=>{
   //   fetch(url, {
@@ -74,4 +79,4 @@ function login() {
   );
 }
 
-export default login;
+export default LoginInit;
