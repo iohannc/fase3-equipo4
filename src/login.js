@@ -34,11 +34,16 @@ function LoginInit() {
       history.replace("/")
     }
   };
-  // let entrar=(url)=>{
+  // let entrar = (url) => {
+  // let token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
   //   fetch(url, {
   //     method: 'POST',
-  //     headers: {'Authorization': "Bearer" + " " + token}
-  // }).then((result) => result.json())
+  //     headers: {
+  //       'Authorization': "Bearer" + " " + token,
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(cuerpo),
+  //   }).then((result) => result.json())
   return (
     <>
       <Header />
