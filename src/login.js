@@ -13,15 +13,21 @@ function login() {
     const email = document.getElementById("email");
     let cuerpo = { password: `${pass.value}`, email: `${email.value}` };
     console.log(cuerpo);
-    let result = await fetch(url, {
+    let result = {}
+    await fetch(url, {
       headers: {
         'Content-Type': 'application/json'
       },
       method: "POST",
       body: JSON.stringify(cuerpo),
       // mode: "no-cors",
-    }).then(async (res) => await res.json()).then((res) => console.log(res)).catch((err) => console.log(err));
-    return result;
+    }).then(async (res) => await res.json()).then((res) => {
+      result = res.user;
+      // console.log(res)
+    }).catch((err) => console.log(err));
+    // const value = document.cookie.split(';').map(a => console.log(a));
+    document.cookie = `token=${result.token}`;
+    document.cookie = `user=${result.username}`;
   };
   // let entrar=(url)=>{
   //   fetch(url, {
