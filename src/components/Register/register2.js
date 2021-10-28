@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Components
 import Header from "../Header/index2";
 import Banner from "../Banner/index2";
 import { GlobalStyle, Columnas, H2, H3, Bloque } from "../../GlobalStyle";
 import { Link } from "react-router-dom";
-function reg() {
+function RegStep2() {
+  let datos = function () {
+    const nombre = document.cookie.split('; ').find(row => row.startsWith('nombre=')).split('=')[1];
+    const apellido = document.cookie.split('; ').find(row => row.startsWith('apellidos=')).split('=')[1];
+    const email = document.cookie.split('; ').find(row => row.startsWith('email=')).split('=')[1];
+    const password = document.cookie.split('; ').find(row => row.startsWith('password=')).split('=')[1];
+    const username = document.cookie.split('; ').find(row => row.startsWith('username=')).split('=')[1];
+    const username1 = document.getElementById("username").innerHTML = username;
+    const nombre1 = document.getElementById("nombre").innerHTML = nombre + " " + apellido;
+    const email1 = document.getElementById("mail").innerHTML = email;
+  }
+  useEffect(() => {
+    // Actualiza el título del documento usando la API del navegador
+    datos();
+  });
   return (
     <>
       <Header />
@@ -17,12 +31,12 @@ function reg() {
         <Bloque>
           <div>
             <h2>Nombre:</h2>
-            <p>Algo</p>
+            <p id="nombre">Algo</p>
           </div>
-          <div>
+          {/* <div>
             <h2>Fecha de nacimiento:</h2>
-            <p>Algo</p>
-          </div>
+            <p id="fecha">Algo</p>
+          </div> */}
         </Bloque>
       </H3>
       <H3>
@@ -30,11 +44,11 @@ function reg() {
         <Bloque>
           <div>
             <h2>Nombre de usuario:</h2>
-            <p>Algo</p>
+            <p id="username">Algo</p>
           </div>
           <div>
             <h2>Correo electrónico:</h2>
-            <p>Algo</p>
+            <p id="mail">Algo</p>
           </div>
         </Bloque>
       </H3>
@@ -57,4 +71,4 @@ function reg() {
   );
 }
 
-export default reg;
+export default RegStep2;
