@@ -99,3 +99,42 @@ export const Bloque = styled.div`
 export const Limit = styled.div`
   max-height: 10px;
 `;
+export const TextMain = styled.h2`
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 1.5rem;
+
+`;
+export const TextSub = styled.h3`
+font-family: "Roboto", sans-serif;
+color: gray;
+font-weight: bold;
+font-size: 0.75rem;
+`;
+export const TextSecond = styled.h2`
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 1rem;
+
+`;
+export const TextTags = styled.h2`
+font-weight: bold;
+font-family: "Roboto", sans-serif;
+font-size: 1rem;
+color: var(--fontRedEmphasis);
+`;
+export const TextTagsMain = styled.h2`
+font-weight: bold;
+font-family: "Roboto", sans-serif;
+font-size: 1.2rem;
+color: var(--fontRedEmphasis);
+margin-bottom:-1.2rem;
+`;
+export const ContenedorText = styled.div`
+text-align: justify;
+margin-top: 1.5rem;
+div{
+  margin-right: 1rem;
+}
+`;

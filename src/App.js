@@ -7,7 +7,7 @@ import reg1 from "./components/Register/register1";
 import reg2 from "./components/Register/register2";
 import historia from "./Historia";
 // Styles
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   useEffect(() => {
     // Actualiza el título del documento usando la API del navegador
@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/register" component={reg} />
         <Route exact path="/register/s1" component={reg1} />
         <Route exact path="/register/s2" component={reg2} />
-        <Route exact path="/history" component={historia} />
+        <Route exact path="/historia/:titulo" component={historia} />
       </BrowserRouter>
     </>
   );
