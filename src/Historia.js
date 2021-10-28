@@ -11,8 +11,13 @@ import { useParams } from "react-router-dom";
 function IsHistoria() {
   let { titulo } = useParams();
   let datos = function () {
-    const username = document.cookie.split('; ').find(row => row.startsWith('user=')).split('=')[1] || "";
-    document.getElementById("username").innerHTML = " " + username;
+    let username = document.cookie.split('; ').find(row => row.startsWith('user='))
+    if (username) {
+      username = username.split('=')[1];
+    } else {
+      username = ""
+    }
+    document.getElementById("username").innerHTML = "  " + username;
   }
   useEffect(() => {
     // Actualiza el título del documento usando la API del navegador

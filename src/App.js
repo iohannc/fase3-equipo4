@@ -9,10 +9,6 @@ import historia from "./Historia";
 // Styles
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
-  useEffect(() => {
-    // Actualiza el título del documento usando la API del navegador
-    document.cookie = `user=`;
-  });
   return (
     <>
       <BrowserRouter>
