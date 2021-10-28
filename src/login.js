@@ -14,7 +14,8 @@ function LoginInit() {
     const email = document.getElementById("email");
     let cuerpo = { password: `${pass.value}`, email: `${email.value}` };
     // console.log(cuerpo);
-    let result = {}
+    let result = {};
+    let a = false;
     await fetch(url, {
       headers: {
         'Content-Type': 'application/json'
@@ -24,14 +25,21 @@ function LoginInit() {
       // mode: "no-cors",
     }).then(async (res) => await res.json()).then((res) => {
       result = res.user;
+      document.cookie = `token=${result.token}`;
+      document.cookie = `user=${result.username}`;
       // console.log(res)
-    }).catch((err) => console.log(err));
+    }).catch((err) => {
+      console.log(err);
+      a = true;
+    });
     // const value = document.cookie.split(';').map(a => console.log(a));
-    let a = result.token;
-    document.cookie = `token=${result.token}`;
-    document.cookie = `user=${result.username}`;
-    if (a) {
+
+    if (!a) {
+      alert("Inicio de sesión exitoso");
       history.replace("/")
+    }
+    if (a) {
+      alert("Inicio de sesión fallido");
     }
   };
   // let entrar = (url) => {
