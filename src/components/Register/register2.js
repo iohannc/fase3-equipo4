@@ -10,7 +10,7 @@ function RegStep2() {
     const apellido = document.cookie.split('; ').find(row => row.startsWith('apellidos=')).split('=')[1];
     const email = document.cookie.split('; ').find(row => row.startsWith('email=')).split('=')[1];
     const password = document.cookie.split('; ').find(row => row.startsWith('password=')).split('=')[1];
-    const username = document.cookie.split('; ').find(row => row.startsWith('username=')).split('=')[1];
+    const username = document.cookie.split('; ').find(row => row.startsWith('user=')).split('=')[1];
     const username1 = document.getElementById("username").innerHTML = username;
     const nombre1 = document.getElementById("nombre").innerHTML = nombre + " " + apellido;
     const email1 = document.getElementById("mail").innerHTML = email;

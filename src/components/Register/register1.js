@@ -17,7 +17,7 @@ function RegStep1() {
     const pass2 = document.getElementById("pass2").value;
     const username = document.getElementById("username").value;
     document.cookie = `email=${mail}`;
-    document.cookie = `username=${username}`;
+    document.cookie = `user=${username}`;
     if (isEqual(pass1, pass2) && username != pass1 && username != "" && pass1 != "" && mail != "") {
       document.cookie = `password=${pass1}`;
       history.replace("s2");

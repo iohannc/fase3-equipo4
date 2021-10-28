@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-end">
-        <div className="navbar-item">Usuario</div>
+        <div className="navbar-item" id="username">Usuario</div>
       </div>
     </Wrapper2>
   );
