@@ -8,7 +8,7 @@ const Categories = (props) =>{
     //cate.map(item => console.log(item));
     return(
         <CategoriesS>
-            {(cate||[]).slice(0,9).map(item => <a key={item.toString()}>{item}</a>)}
+            {(cate||[]).slice(0,9).map(item => <a key={item.toString()}>{item}</a>    )}
             <a>...ver más</a>
         </CategoriesS>
     

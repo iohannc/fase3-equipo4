@@ -24,17 +24,18 @@ const Banner = () => {
         <CatTitle align="center" name="CATEGORÍAS" />
         <Categories
           data={[
-            "horror",
-            "horror1",
-            "horror2",
-            "horror3",
-            "horror4",
-            "horror5",
-            "horror6",
-            "horror7",
-            "horror8",
-            "horror9",
-            "horror0",
+            "Cortos para niños",
+            "Fantansia",
+            "Real",
+            "Halloween",
+            "Crimen real",
+            "Personal",
+            "Fanfiction",
+            "Vida",
+            "Para no dormir",
+            "Paranormal",
+            "Urbano",
+            "Familiar"
           ]}
         />
       </RightSideBanner>
