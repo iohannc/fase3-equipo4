@@ -23,7 +23,7 @@ export const Wrapper2 = styled.nav`
   width: 100%;
   font-family: "Pathway Gothic One", sans-serif;
   font-size: 1.4rem;
-  font-color: white;
+  color: white;
   letter-spacing: 0.2em;
   background-color: #000;
   div {
