@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // Components
-import init from "./Init";
+import Init from "./Init";
 import login from "./login";
 import reg from "./components/Register/index";
 import reg1 from "./components/Register/register1";
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Route exact path="/" render={init} />
+        <Route exact path="/" render={Init} />
         <Route exact path="/login" component={login} />
         <Route exact path="/register" component={reg} />
         <Route exact path="/register/s1" component={reg1} />
