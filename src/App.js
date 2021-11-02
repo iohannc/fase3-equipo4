@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Route path="/" render={init} />
+        <Route exact path="/" render={init} />
         <Route exact path="/login" component={login} />
         <Route exact path="/register" component={reg} />
         <Route exact path="/register/s1" component={reg1} />
