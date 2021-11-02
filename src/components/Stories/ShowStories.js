@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+// Componente externo que facilita la paginación
+import ReactPaginate from "react-paginate";
+// Styles
 import { StoriesS } from "./Stories.styles";
 
 const ItemList = ({ item }) => {
@@ -22,28 +25,60 @@ const ItemList = ({ item }) => {
   );
 };
 
-const ShowStories = () => {
-  const [stories, setStories] = useState([]);
-
-  const getStories = async () => {
-    const fetchedStories = await fetch(
-      "https://proyecto-equipo7.herokuapp.com/v1/historias/"
-    );
-    return await fetchedStories.json();
-  };
-
-  useEffect(() => {
-    getStories()
-      .then((newStories) => setStories(newStories))
-      .catch((err) => console.log(err));
-  });
-
+const Items = ({ stories }) => {
   return (
     <StoriesS>
-      {stories.map((item) => (
-        <ItemList item={item}></ItemList>
+      {stories && stories.map((item, index) => (
+        <ItemList item={item} key={index}></ItemList>
       ))}
     </StoriesS>
+  );
+};
+
+const ShowStories = ({ itemsPerPage, stories }) => {
+  const [currentStories, setCurrentStories] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentStories(stories.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(stories.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage]);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % stories.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <>
+      <Items stories={currentStories} />
+      <ReactPaginate
+        containerClassName="pagination is-centered"
+        pageClassName="page-item"
+        pageLinkClassName="pagination-link"
+        previousLinkClassName="pagination-previous"
+        nextLinkClassName="pagination-next"
+        activeClassName="is-current"
+        role="navigation"
+        aria-label="pagination"
+        breakLabel="..."
+        breakClassName="pagination-ellipsis"
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+      />
+    </>
   );
 };
 
