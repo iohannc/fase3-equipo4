@@ -8,16 +8,14 @@ import Stories from "./components/Stories/index";
 
 import { GlobalStyle } from "./GlobalStyle";
 
-// const function Init() {
-const Init = () => {
-  // const URL = "https://proyecto-equipo7.herokuapp.com/v1/usuarios/limite/20";
-  // const [todos, setTodos] = useState([]);
-  const [stories, setStories] = useState([]);
-  // const [show, setShow] = React.useState(true);
 
-  const getStories = async () => {
+function Init() {
+// const Init = () => {
+  const [stories, setStories] = useState([]);
+
+  const getStories = async () => {  
     const fetchedStories = await fetch(
-      "https://proyecto-equipo7.herokuapp.com/v1/usuarios/limite/20"
+      "https://proyecto-equipo7.herokuapp.com/v1/historias"
     );
     return await fetchedStories.json();
   };
@@ -27,6 +25,13 @@ const Init = () => {
     .then(newStories => setStories(newStories))
     .catch(err => console.log(err));
   });
+
+  
+  // const URL = "https://proyecto-equipo7.herokuapp.com/v1/usuarios/limite/20";
+  // const [todos, setTodos] = useState([]);
+  // const [stories, setStories] = useState([]);
+  // const [show, setShow] = React.useState(true);
+
 
   // useEffect(() => {
   //   const getData = async () => {
@@ -50,5 +55,6 @@ const Init = () => {
     </div>
   );
 }
+
 
 export default Init;
