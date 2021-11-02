@@ -6,7 +6,7 @@ import Stories from "./components/Stories/index";
 
 import { GlobalStyle } from "./GlobalStyle";
 
-function init() {
+function Init() {
   return (
     <div className="App">
       <Header />
@@ -17,4 +17,4 @@ function init() {
   );
 }
 
-export default init;
+export default Init;
