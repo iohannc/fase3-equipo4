@@ -8,7 +8,7 @@ const ItemList = ({ item }) => {
             <h2>{item.titulo}</h2>
             <p>
                 { item.texto }
-            <a>Leer completa</a>
+            Leer completa
             </p>
             <hr />
         </>
