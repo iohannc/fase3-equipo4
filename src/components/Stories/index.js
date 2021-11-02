@@ -5,7 +5,7 @@ import { SideHistories } from "./Stories.styles";
 // import PropTypes from 'prop-types';
 import ShowStories from "./ShowStories";
 
-const Stories = () => {
+function Stories() {
   //   const newStories = [
   //     {
   //       _id: "614811fdbda6bed2a49738fc",

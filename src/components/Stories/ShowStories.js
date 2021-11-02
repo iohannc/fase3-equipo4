@@ -10,7 +10,6 @@ const ItemList = ({ item }) => {
       <h2>{item.titulo}</h2>
       <p
         style={{
-          overflow: "hidden",
           whiteSpace: "nowrap",
           textOverflow: "ellipsis",
         }}
