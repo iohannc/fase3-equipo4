@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"; // Components
 import CatTitle from "../Title";
-import { SideHistories } from "./Stories.styles";
+import { SideHistories, SideHistories2 } from "./Stories.styles";
 
 // import PropTypes from 'prop-types';
 import ShowStories from "./ShowStories";
@@ -74,10 +74,14 @@ function Stories() {
   });
 
   return (
-    <SideHistories>
-      <CatTitle name="HISTORIAS NUEVAS" />
-      <ShowStories stories={stories} itemsPerPage={5} />
-    </SideHistories>
+    <>
+      <SideHistories>
+        <CatTitle name="HISTORIAS NUEVAS" />
+      </SideHistories>
+      <SideHistories2>
+        <ShowStories stories={stories} />
+      </SideHistories2>
+    </>
   );
 };
 

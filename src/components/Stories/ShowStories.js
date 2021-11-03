@@ -6,21 +6,19 @@ import { StoriesS } from "./Stories.styles";
 
 const ItemList = ({ item }) => {
   return (
-    <>
+    <div >
       <h2>{item.titulo}</h2>
       <p
         style={{
           whiteSpace: "nowrap",
-          textOverflow: "ellipsis",
         }}
       >
-        {item.texto}
-        <br />
+        {item.tematica}
         <br />
         <a>Leer completa</a>
       </p>
       <hr />
-    </>
+    </div>
   );
 };
 
@@ -58,8 +56,8 @@ const ShowStories = ({ itemsPerPage, stories }) => {
 
   return (
     <>
-      <Items stories={currentStories} />
-      <ReactPaginate
+      <Items stories={stories} />
+      {/* <ReactPaginate
         containerClassName="pagination is-centered"
         pageClassName="page-item"
         pageLinkClassName="pagination-link"
@@ -76,7 +74,7 @@ const ShowStories = ({ itemsPerPage, stories }) => {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
-      />
+      /> */}
     </>
   );
 };
