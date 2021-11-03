@@ -14,9 +14,7 @@ const MainHistoria = (props) => {
         console.log(historia.location);
     }
     let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
-    let id = document.cookie.split(';').find(row => row.trim().startsWith('id='));
-
-    console.log(id)
+    let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
 
     const entrar = async () => {
         let busq = historia.location.pathname.split("/")[2];
@@ -44,7 +42,7 @@ const MainHistoria = (props) => {
 
     //console.log(document.getElementById("texto").value);
     let enviar = async function () {
-        const url = `https://historiasdeterror.herokuapp.com/v1/historias/` + id;
+        const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
         let result2 = {};
         let cuerpo = { "texto": document.getElementById("texto").value };
         console.log(cuerpo)
@@ -52,7 +50,7 @@ const MainHistoria = (props) => {
         await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer" + ":" + token,
+                'Authorization': "Bearer" + " " + token,
             },
             method: "PUT",
             body: JSON.stringify(cuerpo),
