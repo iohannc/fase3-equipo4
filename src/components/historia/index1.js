@@ -65,7 +65,7 @@ const MainHistoria = (props) => {
             historia.replace("/")
         }
         if (!a) {
-            alert("Cambios no realizados");
+            alert("Cambios no realizados, no eres administrador o autor de la historia");
         }
     }
 
