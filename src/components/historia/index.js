@@ -46,7 +46,6 @@ const MainHistoria = (props) => {
         }).then(async (res) => await res.json()).then((res) => {
             console.log(res);
             a = true;
-            alert("Cambios realizados");
         }).catch((err) => {
             console.log(err);
         });
