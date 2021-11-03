@@ -10,7 +10,8 @@ const MainHistoria = (props) => {
     console.log(url);
     let historia = useHistory();
     const cambiar = async () => {
-        historia.go(-1);
+        let busq = historia.location.pathname.split("/")[2];
+        historia.replace(`/historia/${busq}`);
         console.log(historia.location);
     }
     let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
