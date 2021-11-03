@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // Componente externo que facilita la paginación
 import ReactPaginate from "react-paginate";
+import { NavLink } from 'react-router-dom';
 // Styles
 import { StoriesS } from "./Stories.styles";
 
@@ -15,7 +16,7 @@ const ItemList = ({ item }) => {
       >
         {item.tematica}
         <br />
-        <a>Leer completa</a>
+        <NavLink to={`/historia/${item.titulo}`}>Leer completa</NavLink>
       </p>
       <hr />
     </div>

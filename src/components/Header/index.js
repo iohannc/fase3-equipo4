@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../../assets/images/logo.jpg";
 // Styles
 import { Wrapper, Logo } from "./Header.styles";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Limit } from "../../GlobalStyle";
 const Header = () => {
   return (
@@ -14,12 +14,12 @@ const Header = () => {
       <div className="navbar-end">
         <div className="navbar-item">
           <Limit>
-            <Link to="/login/">ENTRAR</Link>
+            <NavLink to="/login/">ENTRAR</NavLink>
           </Limit>
         </div>
         <div className="navbar-item">
           <Limit>
-            <Link to="/register/">REGISTRARSE</Link>
+            <NavLink to="/register/">REGISTRARSE</NavLink>
           </Limit>
         </div>
       </div>
