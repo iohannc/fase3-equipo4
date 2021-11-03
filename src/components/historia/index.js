@@ -30,7 +30,33 @@ const MainHistoria = (props) => {
             console.log(err);
         });
         // const value = document.cookie.split(';').map(a => console.log(a));
-
+    };
+    let eliminar = async function () {
+        let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
+        let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
+        const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
+        let result2 = {};
+        let a = false;
+        await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer" + " " + token,
+            },
+            method: "DELETE",
+        }).then(async (res) => await res.json()).then((res) => {
+            console.log(res);
+            a = true;
+            alert("Cambios realizados");
+        }).catch((err) => {
+            console.log(err);
+        });
+        if (a) {
+            alert("Cambios realizados");
+            historia.replace("/")
+        }
+        if (!a) {
+            alert("Cambios no realizados");
+        }
     };
     useEffect(() => {
         entrar();
@@ -53,7 +79,8 @@ const MainHistoria = (props) => {
                     <span className="button is-success is-outlined">
                         <i className="fas fa-pencil-alt" onClick={cambiar}></i>
                     </span>
-                    <span className="button is-danger is-outlined"><i className="fas fa-trash"></i> </span>
+                    <span className="button is-danger is-outlined">
+                        <i className="fas fa-trash" onClick={eliminar}></i> </span>
                     {/* &nbsp;
                     <span class="button is-success is-outlined">
                     <i class="fas fa-check"></i>    
