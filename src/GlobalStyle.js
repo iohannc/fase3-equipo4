@@ -106,6 +106,17 @@ export const TextMain = styled.h2`
   font-size: 1.5rem;
 
 `;
+
+export const TextEdit = styled.textarea`
+  width: 100%;
+  height: 50vh;
+  background-color:#000;
+  font-family: "Roboto", sans-serif;
+  color: gray;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border: 0px solid;
+`;
 export const TextSub = styled.h3`
 font-family: "Roboto", sans-serif;
 color: gray;
