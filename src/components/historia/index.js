@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // Assets
-import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub } from "../../GlobalStyle";
+import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub, TextEdit } from "../../GlobalStyle";
 const MainHistoria = (props) => {
+    let historia = useHistory();
+    const cambiar = async() => {
+        historia.push('edit');
+        console.log(historia);
+    }
     const entrar = async () => {
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${props.show}`;
         const titulo = document.getElementById("titulo");
@@ -42,13 +47,11 @@ const MainHistoria = (props) => {
                     </div>
                 </div>
                 <div className="is-2">
-                    <span class="button is-info is-outlined">
-                    <i class="fas fa-pencil-alt"></i>    
-                    </span>
                     &nbsp;
-                    <span class="button is-danger is-outlined">
-                    <i class="fas fa-trash"></i>    
+                    <span className="button is-success is-outlined">
+                    <i className="fas fa-pencil-alt" onClick = {cambiar}></i>
                     </span>
+                    <span className="button is-danger is-outlined"><i className="fas fa-trash"></i> </span>
                     {/* &nbsp;
                     <span class="button is-success is-outlined">
                     <i class="fas fa-check"></i>    
@@ -105,8 +108,8 @@ const MainHistoria = (props) => {
             <div className="columns is-centered">
                 <div className="column is-8">
                     <TextTagsMain>
-                        <span class="tag is-danger">
-                            <i class="fas fa-tag" is-medium></i>
+                        <span className="tag is-danger">
+                            <i className="fas fa-tag is-medium"></i>
                         </span>
                         Tags 
                     </TextTagsMain>
@@ -123,5 +126,20 @@ const MainHistoria = (props) => {
 
     );
 };
+
+// const OkComponentes =(props)=>{
+//     let { path, url } = useRouteMatch();
+//     console.log(props.busqueda);
+//     return(
+//         <div>
+//         <span class="button is-info is-outlined">
+//         {/* <Link to ={`${url}`}><i class="fas fa-pencil-alt"></i></Link> */}
+//             <Link to ={`/historia/edit/${props.busqueda}`}><i class="fas fa-pencil-alt"></i></Link>
+           
+//         </span>
+//         </div> 
+//     )
+// }
+
 
 export default MainHistoria;
