@@ -40,7 +40,7 @@ const MainHistoria = (props) => {
         await fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer" + " " + token,
+                'Authorization': "Bearer " + token.split("=")[1],
             },
             method: "DELETE",
         }).then(async (res) => await res.json()).then((res) => {

@@ -44,25 +44,19 @@ const MainHistoria = (props) => {
     //console.log(document.getElementById("texto").value);
     let enviar = async function () {
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
-        let result2 = {};
         let cuerpo = { "texto": document.getElementById("texto").value };
         console.log(cuerpo)
         let a = false;
         await fetch(url, {
+            method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer" + " " + token,
+                'Authorization': "Bearer " + token.split("=")[1],
             },
-            method: "PUT",
             body: JSON.stringify(cuerpo),
         }).then(async (res) => await res.json()).then((res) => {
             console.log(res);
             a = true;
-            result2 = res;
-            let result = res.texto;
-            //   document.cookie = `user=${result.username}`;
-            //   document.cookie = `token=${result2.token}`;
-            alert("Cambios realizados");
         }).catch((err) => {
             console.log(err);
         });
