@@ -1,16 +1,25 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
+import Header from "../Header/index3";
+import { GlobalStyle, Ids } from "../../GlobalStyle";
 
 // Assets
-import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub, TextEdit } from "../../GlobalStyle";
+import { TextMain, TextEdit, TextTags, TextTagsMain, ContenedorText, TextSub } from "../../GlobalStyle";
 const MainHistoria = (props) => {
+    let { path, url } = useRouteMatch();
+    console.log(url);
     let historia = useHistory();
     const cambiar = async () => {
-        historia.push(`${props.show}/edit`);
-        console.log(historia);
+        let busq = historia.location.pathname.split("/")[2];
+        historia.replace(`/historia/${busq}`);
+        console.log(historia.location);
     }
+    let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
+    let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
+
     const entrar = async () => {
-        const url = `https://historiasdeterror.herokuapp.com/v1/historias/${props.show}`;
+        let busq = historia.location.pathname.split("/")[2];
+        const url = `https://historiasdeterror.herokuapp.com/v1/historias/${busq}`;
         const titulo = document.getElementById("titulo");
         const tematica = document.getElementById("tematica");
         const texto = document.getElementById("texto");
@@ -20,33 +29,34 @@ const MainHistoria = (props) => {
         console.log(url)
         await fetch(url).then(async (res) => await res.json()).then((res) => {
             result = res["0"];
-            console.log(result);
-            document.cookie = `id=${result._id}`;
             titulo.innerHTML = result.titulo;
             tematica.innerHTML = result.tematica;
             texto.innerHTML = result.texto;
+            console.log(result.texto);
             tags.innerHTML = result.tag.slice(1, result.tag.length - 1).split(',');
         }).catch((err) => {
             console.log(err);
         });
         // const value = document.cookie.split(';').map(a => console.log(a));
+
     };
-    let eliminar = async function () {
-        let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
-        let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
+
+    //console.log(document.getElementById("texto").value);
+    let enviar = async function () {
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
-        let result2 = {};
+        let cuerpo = { "texto": document.getElementById("texto").value };
+        console.log(cuerpo)
         let a = false;
         await fetch(url, {
+            method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': "Bearer " + token.split("=")[1],
             },
-            method: "DELETE",
+            body: JSON.stringify(cuerpo),
         }).then(async (res) => await res.json()).then((res) => {
             console.log(res);
             a = true;
-            alert("Cambios realizados");
         }).catch((err) => {
             console.log(err);
         });
@@ -57,31 +67,36 @@ const MainHistoria = (props) => {
         if (!a) {
             alert("Cambios no realizados");
         }
-    };
+    }
+
+
     useEffect(() => {
         entrar();
     });
     return (
-        <ContenedorText>
-            <div className="columns is-centered">
-                <div className="column is-7">
-                    <div className="is-narrow">
-                        <TextMain id="titulo">
-                            ID: {props.show}
-                        </TextMain>
-                        <TextSub id="tematica">
-                            Tematica
-                        </TextSub>
+        <>
+            <Header />
+            <ContenedorText>
+                <div className="columns is-centered">
+                    <div className="column is-7">
+                        <div className="is-narrow">
+                            <TextMain id="titulo">
+                                ID: {props.show}
+                            </TextMain>
+                            <TextSub id="tematica">
+                                Tematica
+                            </TextSub>
+                        </div>
                     </div>
-                </div>
-                <div className="is-2">
-                    &nbsp;
-                    <span className="button is-success is-outlined">
-                        <i className="fas fa-pencil-alt" onClick={cambiar}></i>
-                    </span>
-                    <span className="button is-danger is-outlined">
-                        <i className="fas fa-trash" onClick={eliminar}></i> </span>
-                    {/* &nbsp;
+                    <div className="is-2">
+                        <span className="button is-info is-outlined" onClick={enviar}>
+                            <i className="fas fa-check"></i>
+                        </span>
+                        &nbsp;
+                        <span className="button is-danger is-outlined">
+                            <i className="fas fa-times" onClick={cambiar}></i>
+                        </span>
+                        {/* &nbsp;
                     <span class="button is-success is-outlined">
                     <i class="fas fa-check"></i>    
                     </span>
@@ -91,7 +106,7 @@ const MainHistoria = (props) => {
                     </span> */}
 
 
-                    {/* <TextMain>Iconos</TextMain>
+                        {/* <TextMain>Iconos</TextMain>
                     <i class="fas fa-trash"></i>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                     <i class="fas fa-trash"></i>
@@ -125,50 +140,35 @@ const MainHistoria = (props) => {
                             <i class="fas fa-times"></i>
                             </span>
                     </button> */}
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered is-narrow">
-                <div className="column is-8">
-                    <TextSecond id="texto" className="is-narrow">
-                        Mucho texto xd
-                    </TextSecond>
+                <div className="columns is-centered is-narrow">
+                    <div className="column is-8">
+                        <TextEdit id="texto" className="is-narrow">
+                        </TextEdit>
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered">
-                <div className="column is-8">
-                    <TextTagsMain>
-                        <span className="tag is-danger">
-                            <i className="fas fa-tag is-medium"></i>
-                        </span>
-                        Tags
-                    </TextTagsMain>
+                <div className="columns is-centered">
+                    <div className="column is-8">
+                        <TextTagsMain>
+                            <span className="tag is-danger">
+                                <i className="fas fa-tag is-medium"></i>
+                            </span>
+                            Tags
+                        </TextTagsMain>
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered">
-                <div className="column is-8">
-                    <TextTags id="tags">
-                        Tags
-                    </TextTags>
+                <div className="columns is-centered">
+                    <div className="column is-8">
+                        <TextTags id="tags">
+                            Tags
+                        </TextTags>
+                    </div>
                 </div>
-            </div>
-        </ContenedorText>
-
+            </ContenedorText>
+            <GlobalStyle />
+        </>
     );
 };
-
-// const OkComponentes =(props)=>{
-//     let { path, url } = useRouteMatch();
-//     console.log(props.busqueda);
-//     return(
-//         <div>
-//         <span class="button is-info is-outlined">
-//         {/* <Link to ={`${url}`}><i class="fas fa-pencil-alt"></i></Link> */}
-//             <Link to ={`/historia/edit/${props.busqueda}`}><i class="fas fa-pencil-alt"></i></Link>
-
-//         </span>
-//         </div> 
-//     )
-// }
-
 
 export default MainHistoria;
