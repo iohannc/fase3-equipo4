@@ -5,8 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub, TextEdit } from "../../GlobalStyle";
 const MainHistoria = (props) => {
     let historia = useHistory();
-    const cambiar = async() => {
-        historia.push('edit');
+    const cambiar = async () => {
+        historia.push(`${props.show}/edit`);
         console.log(historia);
     }
     const entrar = async () => {
@@ -20,6 +20,8 @@ const MainHistoria = (props) => {
         console.log(url)
         await fetch(url).then(async (res) => await res.json()).then((res) => {
             result = res["0"];
+            console.log(result);
+            document.cookie = `id=${result._id}`;
             titulo.innerHTML = result.titulo;
             tematica.innerHTML = result.tematica;
             texto.innerHTML = result.texto;
@@ -49,7 +51,7 @@ const MainHistoria = (props) => {
                 <div className="is-2">
                     &nbsp;
                     <span className="button is-success is-outlined">
-                    <i className="fas fa-pencil-alt" onClick = {cambiar}></i>
+                        <i className="fas fa-pencil-alt" onClick={cambiar}></i>
                     </span>
                     <span className="button is-danger is-outlined"><i className="fas fa-trash"></i> </span>
                     {/* &nbsp;
@@ -111,14 +113,14 @@ const MainHistoria = (props) => {
                         <span className="tag is-danger">
                             <i className="fas fa-tag is-medium"></i>
                         </span>
-                        Tags 
+                        Tags
                     </TextTagsMain>
                 </div>
             </div>
             <div className="columns is-centered">
                 <div className="column is-8">
                     <TextTags id="tags">
-                    Tags
+                        Tags
                     </TextTags>
                 </div>
             </div>
@@ -135,7 +137,7 @@ const MainHistoria = (props) => {
 //         <span class="button is-info is-outlined">
 //         {/* <Link to ={`${url}`}><i class="fas fa-pencil-alt"></i></Link> */}
 //             <Link to ={`/historia/edit/${props.busqueda}`}><i class="fas fa-pencil-alt"></i></Link>
-           
+
 //         </span>
 //         </div> 
 //     )

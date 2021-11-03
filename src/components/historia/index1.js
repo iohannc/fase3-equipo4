@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link , useRouteMatch, useHistory} from 'react-router-dom';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 import Header from "../Header/index3";
 import { GlobalStyle, Ids } from "../../GlobalStyle";
 
@@ -9,13 +9,15 @@ const MainHistoria = (props) => {
     let { path, url } = useRouteMatch();
     console.log(url);
     let historia = useHistory();
-    const cambiar = async() => {
+    const cambiar = async () => {
         historia.go(-1);
         console.log(historia.location);
     }
-    let id = document.cookie.split(';').find(row=> row.trim().startsWith('token='))
+    let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
+    let id = document.cookie.split(';').find(row => row.trim().startsWith('id='));
+
     console.log(id)
-    
+
     const entrar = async () => {
         let busq = historia.location.pathname.split("/")[2];
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${busq}`;
@@ -42,34 +44,35 @@ const MainHistoria = (props) => {
 
     //console.log(document.getElementById("texto").value);
     let enviar = async function () {
-        const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
+        const url = `https://historiasdeterror.herokuapp.com/v1/historias/` + id;
         let result2 = {};
-         let cuerpo = { "texto": document.getElementById("texto").value};
+        let cuerpo = { "texto": document.getElementById("texto").value };
         console.log(cuerpo)
         let a = false;
         await fetch(url, {
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: "PUT",
-          body: JSON.stringify(cuerpo),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer" + ":" + token,
+            },
+            method: "PUT",
+            body: JSON.stringify(cuerpo),
         }).then(async (res) => await res.json()).then((res) => {
-          console.log(res);
-          a = true;
-          result2 = res;
-          let result = res.texto;
-        //   document.cookie = `user=${result.username}`;
-        //   document.cookie = `token=${result2.token}`;
-          alert("Cambios realizados");
+            console.log(res);
+            a = true;
+            result2 = res;
+            let result = res.texto;
+            //   document.cookie = `user=${result.username}`;
+            //   document.cookie = `token=${result2.token}`;
+            alert("Cambios realizados");
         }).catch((err) => {
-          console.log(err);
+            console.log(err);
         });
         if (a) {
-          alert("Cambios realizados");
-          historia.replace("/")
+            alert("Cambios realizados");
+            historia.replace("/")
         }
         if (!a) {
-          alert("Cambios no realizados");
+            alert("Cambios no realizados");
         }
     }
 
@@ -79,28 +82,28 @@ const MainHistoria = (props) => {
     });
     return (
         <>
-        <Header />
-        <ContenedorText>
-            <div className="columns is-centered">
-                <div className="column is-7">
-                    <div className="is-narrow">
-                        <TextMain id="titulo">
-                            ID: {props.show}
-                        </TextMain>
-                        <TextSub id="tematica">
-                            Tematica
-                        </TextSub>
+            <Header />
+            <ContenedorText>
+                <div className="columns is-centered">
+                    <div className="column is-7">
+                        <div className="is-narrow">
+                            <TextMain id="titulo">
+                                ID: {props.show}
+                            </TextMain>
+                            <TextSub id="tematica">
+                                Tematica
+                            </TextSub>
+                        </div>
                     </div>
-                </div>
-                <div className="is-2">
-                    <span className="button is-info is-outlined" onClick={enviar}>
-                    <i className="fas fa-check"></i>
-                    </span>
-                    &nbsp;
-                    <span className="button is-danger is-outlined">
-                    <i className="fas fa-times" onClick={cambiar}></i>    
-                    </span>
-                    {/* &nbsp;
+                    <div className="is-2">
+                        <span className="button is-info is-outlined" onClick={enviar}>
+                            <i className="fas fa-check"></i>
+                        </span>
+                        &nbsp;
+                        <span className="button is-danger is-outlined">
+                            <i className="fas fa-times" onClick={cambiar}></i>
+                        </span>
+                        {/* &nbsp;
                     <span class="button is-success is-outlined">
                     <i class="fas fa-check"></i>    
                     </span>
@@ -110,7 +113,7 @@ const MainHistoria = (props) => {
                     </span> */}
 
 
-                    {/* <TextMain>Iconos</TextMain>
+                        {/* <TextMain>Iconos</TextMain>
                     <i class="fas fa-trash"></i>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                     <i class="fas fa-trash"></i>
@@ -144,33 +147,33 @@ const MainHistoria = (props) => {
                             <i class="fas fa-times"></i>
                             </span>
                     </button> */}
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered is-narrow">
-                <div className="column is-8">
-                    <TextEdit id="texto" className="is-narrow">
-                    </TextEdit>
+                <div className="columns is-centered is-narrow">
+                    <div className="column is-8">
+                        <TextEdit id="texto" className="is-narrow">
+                        </TextEdit>
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered">
-                <div className="column is-8">
-                    <TextTagsMain>
-                        <span className="tag is-danger">
-                            <i className="fas fa-tag is-medium"></i>
-                        </span>
-                        Tags 
-                    </TextTagsMain>
+                <div className="columns is-centered">
+                    <div className="column is-8">
+                        <TextTagsMain>
+                            <span className="tag is-danger">
+                                <i className="fas fa-tag is-medium"></i>
+                            </span>
+                            Tags
+                        </TextTagsMain>
+                    </div>
                 </div>
-            </div>
-            <div className="columns is-centered">
-                <div className="column is-8">
-                    <TextTags id="tags">
-                    Tags
-                    </TextTags>
+                <div className="columns is-centered">
+                    <div className="column is-8">
+                        <TextTags id="tags">
+                            Tags
+                        </TextTags>
+                    </div>
                 </div>
-            </div>
-        </ContenedorText>
-        <GlobalStyle />
+            </ContenedorText>
+            <GlobalStyle />
         </>
     );
 };
