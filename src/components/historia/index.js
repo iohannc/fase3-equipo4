@@ -69,6 +69,7 @@ const MainHistoria = (props) => {
     useEffect(() => {
         entrar();
     });
+    let tokenG = document.cookie.split(';').find(row => row.trim().startsWith('token='));
     return (
         <ContenedorText>
             <div className="columns is-centered">
@@ -84,11 +85,15 @@ const MainHistoria = (props) => {
                 </div>
                 <div className="is-2">
                     &nbsp;
-                    <span className="button is-success is-outlined">
-                        <i className="fas fa-pencil-alt" onClick={cambiar}></i>
-                    </span>
-                    <span className="button is-danger is-outlined">
-                        <i className="fas fa-trash" onClick={eliminar}></i> </span>
+                    {tokenG &&
+                        <>
+                            <span className="button is-success is-outlined">
+                                <i className="fas fa-pencil-alt" onClick={cambiar}></i>
+                            </span>
+                            <span className="button is-danger is-outlined">
+                                <i className="fas fa-trash" onClick={eliminar}></i> </span>
+                        </>
+                    }
                     {/* &nbsp;
                     <span class="button is-success is-outlined">
                     <i class="fas fa-check"></i>    
