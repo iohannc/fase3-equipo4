@@ -79,7 +79,7 @@ function Stories() {
         <CatTitle name="HISTORIAS NUEVAS" />
       </SideHistories>
       <SideHistories2>
-        <ShowStories stories={stories} />
+        <ShowStories stories={[...stories]} />
       </SideHistories2>
     </>
   );
