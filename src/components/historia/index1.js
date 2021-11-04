@@ -9,7 +9,7 @@ const MainHistoria = (props) => {
     let { path, url } = useRouteMatch();
     console.log(url);
     let historia = useHistory();
-    const cambiar = async () => {
+    const cambiar = () => {
         let busq = historia.location.pathname.split("/")[2];
         historia.replace(`/historia/${busq}`);
         console.log(historia.location);

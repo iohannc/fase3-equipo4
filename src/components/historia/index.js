@@ -5,14 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub, TextEdit } from "../../GlobalStyle";
 const MainHistoria = (props) => {
     let historia = useHistory();
-    const cambiar = async () => {
-        let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
-        console.log(historia);
-        if (!token) {
-            alert("No tienes los permisos suficientes");
-            return;
-        }
-        historia.push(`edit`);
+    const cambiar = () => {
+        historia.push(`/historia/${props.show}/edit`);
     }
     const entrar = async () => {
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${props.show}`;
@@ -38,10 +32,6 @@ const MainHistoria = (props) => {
     };
     let eliminar = async function () {
         let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
-        if (!token) {
-            alert("No tienes los permisos suficientes");
-            return;
-        }
         let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
         let result2 = {};
