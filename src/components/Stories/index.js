@@ -5,7 +5,7 @@ import { SideHistories, SideHistories2 } from "./Stories.styles";
 // import PropTypes from 'prop-types';
 import ShowStories from "./ShowStories";
 
-function Stories() {
+function Stories(props) {
   //   const newStories = [
   //     {
   //       _id: "614811fdbda6bed2a49738fc",
@@ -58,12 +58,21 @@ function Stories() {
   //         "An eerie stillness engulfed the house.\n\nIt was unmoving, lifeless, swallowed up in a pitch-black darkness which left the halls unnervingly dark. My room, which was consumed by the night, was illuminated only by the blaring red numbers on my clock, allowing me to see no further than the foot of my bed. I stared at the wall, my mind conjuring up shapes in the dark. My stomach churning, anticipation keeping me starkly awake. I lay in my bed, motionless. I knew what was to come, could feel it creeping up on me, seizing my body and holding it captive, keeping me bound to my own bed until…\n\n𝘉𝘢𝘯𝘨\n\n𝘉𝘢𝘯𝘨\n\n𝘉𝘢𝘯𝘨.\n\nThe room came alive, thrashing, writhing. My body shook, uncontrollable, trembling, my lips... ",
   //     },
   //   ];
-
+  const leyenda = props.origen === ''?'HISTORIAS NUEVAS':"CATEGORIA ".concat(props.origen).toUpperCase();
+  const tematica = props.origen === ''?'':props.origen;
+  console.debug("index Stories --> ", tematica);
   const [stories, setStories] = useState([]);
   const getStories = async () => {
-    const fetchedStories = await fetch(
-      "https://proyecto-equipo7.herokuapp.com/v1/historias/"
-    );
+    let fetchedStories;
+    if(leyenda==='HISTORIAS NUEVAS') {
+      fetchedStories = await fetch(
+        "https://proyecto-equipo7.herokuapp.com/v1/historias/"
+      );  
+    } else {
+      fetchedStories = await fetch(
+        "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(tematica)
+      );  
+    }
     return await fetchedStories.json();
   };
 
@@ -76,7 +85,7 @@ function Stories() {
   return (
     <>
       <SideHistories>
-        <CatTitle name="HISTORIAS NUEVAS" />
+        <CatTitle name={leyenda} />
       </SideHistories>
       <SideHistories2>
         <ShowStories stories={[...stories]} />

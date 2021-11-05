@@ -12,30 +12,37 @@ import vampiro from "../../assets/images/vampiro.jpg";
 import CatTitle from "../Title";
 import Categories from "../Categories";
 
-const Banner = () => {
+const Banner = (props) => {
+  const leyenda = props.origen === undefined?'BIENVENIDO':props.origen;
+  let bloquecodigo = "";
+  if(leyenda !== ' ' ) {
+    bloquecodigo = <BannerImage className="image"><img src={vampiro} alt="Vampiro" /></BannerImage>;
+
+    // <BannerImage className="image">
+    //   <img src={vampiro} alt="Vampiro" />
+    // </BannerImage>
+
+  }
   return (
     <Wrapper className="container">
-      <BannerImage className="image">
-        <img src={vampiro} alt="Vampiro" />
-      </BannerImage>
+      {bloquecodigo}
       <RightSideBanner>
-        <h1>BIENVENIDO</h1>
+        <h1>{leyenda}</h1>
         <SearchForm />
         <CatTitle align="center" name="CATEGORÍAS" />
         <Categories
           data={[
             "Cortos para niños",
-            "Fantansia",
-            "Real",
-            "Halloween",
             "Crimen real",
-            "Personal",
             "Fanfiction",
-            "Vida",
-            "Para no dormir",
+            "Fantasia",
+            "Halloween",
             "Paranormal",
+            "Para no dormir",
+            "Personal",
+            "Real",
             "Urbano",
-            "Familiar"
+            "Vida"
           ]}
         />
       </RightSideBanner>

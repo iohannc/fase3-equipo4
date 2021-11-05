@@ -10,8 +10,8 @@ function Init() {
   return (
     <div className="App">
       <Header />
-      <Banner />
-      <Stories />
+      <Banner origen="BIENVENIDO"/>
+      <Stories origen=""/>
       <GlobalStyle />
     </div>
   );
