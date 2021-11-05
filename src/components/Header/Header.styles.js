@@ -53,4 +53,5 @@ export const Logo2 = styled.img`
 export const Logo3 = styled.img`
   width: 20%;
   height: 20%;
+  margin-left:3rem;
 `;
