@@ -60,7 +60,6 @@ function Stories(props) {
   //   ];
   const leyenda = props.origen === ''?'HISTORIAS NUEVAS':"CATEGORIA ".concat(props.origen).toUpperCase();
   const tematica = props.origen === ''?'':props.origen;
-  console.debug("index Stories --> ", tematica);
   const [stories, setStories] = useState([]);
   const getStories = async () => {
     let fetchedStories;
