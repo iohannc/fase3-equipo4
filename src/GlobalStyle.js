@@ -149,3 +149,10 @@ div{
   margin-right: 1rem;
 }
 `;
+
+export const Titulo = styled.p`
+font-weight: bold;
+font-family: "Roboto", sans-serif;
+font-size: 1.2rem;
+color: var(--fontRedEmphasis);
+`;
