@@ -6,6 +6,19 @@ import { GlobalStyle, Ids } from "../../GlobalStyle";
 // Assets
 import { TextMain, TextEdit, TextTags, TextTagsMain, ContenedorText, TextSub } from "../../GlobalStyle";
 const MainHistoria = (props) => {
+    let datos = function () {
+        let username = document.cookie.split('; ').find(row => row.startsWith('user='))
+        if (username) {
+            username = username.split('=')[1];
+        } else {
+            username = ""
+        }
+        document.getElementById("username").innerHTML = "  " + username;
+    }
+    useEffect(() => {
+        // Actualiza el título del documento usando la API del navegador
+        datos();
+    });
     let { path, url } = useRouteMatch();
     console.log(url);
     let historia = useHistory();
