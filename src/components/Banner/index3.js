@@ -21,11 +21,6 @@ const Banner = (props) => {
   let bloquecodigo = "";
   if (leyenda !== ' ') {
     bloquecodigo = <BannerImage className="image"><img src={vampiro} alt="Vampiro" /></BannerImage>;
-
-    // <BannerImage className="image">
-    //   <img src={vampiro} alt="Vampiro" />
-    // </BannerImage>
-
   }
   return (
     <Wrapper className="container">

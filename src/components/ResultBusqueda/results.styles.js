@@ -14,6 +14,7 @@ export const TitleBusq = styled.h2`
   font-family: "Roboto", sans-serif;
   color: white;
   font-size: 1.5rem;
+  margin: 40px 0 0 80px;
 `;
 
 export const ResultItem = styled.div`
