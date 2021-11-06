@@ -11,8 +11,7 @@ const MainHistoria = (props) => {
     let historia = useHistory();
     const cambiar = () => {
         let busq = historia.location.pathname.split("/")[2];
-        historia.replace(`/historia/${busq}`);
-        console.log(historia.location);
+        historia.push(`/historia/${busq}/`);
     }
     let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
     let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))

@@ -5,12 +5,23 @@ import { SideHistories, SideHistories2 } from "./Stories.styles";
 // import PropTypes from 'prop-types';
 import ShowStories from "./ShowStories";
 
-function Stories() {
+
+function Stories(props) {
+
+  const leyenda = props.origen === ''?'HISTORIAS NUEVAS':"CATEGORIA ".concat(props.origen).toUpperCase();
+  const tematica = props.origen === ''?'':props.origen;
   const [stories, setStories] = useState([]);
   const getStories = async () => {
-    const fetchedStories = await fetch(
-      "https://proyecto-equipo7.herokuapp.com/v1/historias/"
-    );
+    let fetchedStories;
+    if(leyenda==='HISTORIAS NUEVAS') {
+      fetchedStories = await fetch(
+        "https://proyecto-equipo7.herokuapp.com/v1/historias/"
+      );  
+    } else {
+      fetchedStories = await fetch(
+        "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(tematica)
+      );  
+    }
     return await fetchedStories.json();
   };
 
@@ -23,7 +34,7 @@ function Stories() {
   return (
     <>
       <SideHistories>
-        <CatTitle name="HISTORIAS NUEVAS" />
+        <CatTitle name={leyenda} />
       </SideHistories>
       <SideHistories2>
         <ShowStories stories={[...stories]} />

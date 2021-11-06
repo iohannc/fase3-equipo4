@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { StoriesS } from "./Stories.styles";
 
 const ItemList = ({ item }) => {
+
   return (
     <div >
       <h2>{item.titulo}</h2>
@@ -37,6 +38,7 @@ const ShowStories = ({ itemsPerPage, stories }) => {
   const [currentStories, setCurrentStories] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+
 
 
   useEffect(() => {

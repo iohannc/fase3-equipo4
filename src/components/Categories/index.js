@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {CategoriesS} from './Categories.styles';
+// import { Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+// import {earchCategory} from '../SearchCategory/index';
 
 
 const Categories = (props) =>{
@@ -8,8 +12,10 @@ const Categories = (props) =>{
     //cate.map(item => console.log(item));
     return(
         <CategoriesS>
-            {(cate||[]).slice(0,9).map(item => <a key={item.toString()}>{item}</a>    )}
-            <a>...ver más</a>
+            {(cate||[]).slice(0,10).map(item => 
+                <NavLink to={`/categoria/${item.toString()}`}>{item}</NavLink>
+            )}
+            {/* <a>...ver más</a> */}
         </CategoriesS>
     
     );

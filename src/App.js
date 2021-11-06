@@ -8,6 +8,8 @@ import reg2 from "./components/Register/register2";
 import historia from "./Historia";
 import editHis from "./components/historia/index1"
 import results from "./components/ResultBusqueda/index"
+import categoria from "./components/SearchCategory/index"
+
 // Styles
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route exact path="/historia/:titulo" component={historia} />
         <Route exact path="/historia/:titulo/edit" component={editHis} />
         <Route exact path="/busqueda/:busqueda" component={results} />
+        <Route exact path="/categoria/:tematica" component={categoria} />
       </BrowserRouter>
     </>
   );
