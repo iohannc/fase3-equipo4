@@ -149,7 +149,7 @@ const MainHistoria = (props) => {
             </div>
             <div className="columns is-centered">
                 <div className="column is-8">
-                    <TextTags id="tags">
+                    <TextTags id="tagscontinuar">
                         Tags
                     </TextTags>
                 </div>
