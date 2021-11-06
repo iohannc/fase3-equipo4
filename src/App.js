@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/register/s2" component={reg2} />
         <Route exact path="/historia/:titulo" component={historia} />
         <Route exact path="/historia/:titulo/edit" component={editHis} />
-        <Route exact path="/result" component={results} />
+        <Route exact path="/busqueda/:busqueda" component={results} />
       </BrowserRouter>
     </>
   );
