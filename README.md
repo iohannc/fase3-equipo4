@@ -14,5 +14,6 @@
 - Mockup hecho en Figma
 
 ### Biblioteca de Terror
--Proyecto:https://fase3-equipo4.netlify.app/
+#Proyecto:https://fase3-equipo4.netlify.app/
+#Usuario de prueba perez@gmail.com Pass 12ab__de
 ![Mockup image](https://i.imgur.com/YckHCrS.png)
