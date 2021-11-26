@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 
 // import SearchForm from '../SearchForm/index';
@@ -12,12 +12,20 @@ import { GlobalStyle } from "../../GlobalStyle";
 
 
 const SearchCategory = (props) => {
-  let historia = useHistory();
-  let busq = historia.location.pathname.split("/")[2];
-  // let origen = "Categoría ".concat(busq);
-  // let origen = "Resultado búsqueda";
-  let origen = busq;
-  console.log("SearchCategory--> busq-->", busq);
+  const history = useHistory();
+  const categoria = history.location.pathname.split("/")[2];
+  const [currentCategory, setCurrentCategory] = useState(categoria);
+
+  // No eliminar este useEffect.
+  // Es importante para rerenderizar el título de la categoría 
+  // a la que se le haya dado click
+  useEffect(() => {
+      history.listen((location) => {
+      setCurrentCategory(location.pathname.split("/")[2]);
+      });
+      return setCurrentCategory(history.location.pathname.split("/")[2]);
+  }, [history])
+// -------------------------------------------------------
   return (
     <div className="App">
       <Header />
@@ -38,7 +46,7 @@ const SearchCategory = (props) => {
           "Vida"
         ]}
       />
-      <Stories origen={origen} />
+      <Stories currentCategory={currentCategory} />
       <GlobalStyle />
     </div>
   );
