@@ -6,38 +6,18 @@ import { SideHistories, SideHistories2 } from "./Stories.styles";
 import ShowStories from "./ShowStories";
 
 
-function Stories(props) {
-
-  const leyenda = props.origen === ''?'HISTORIAS NUEVAS':"CATEGORIA ".concat(props.origen).toUpperCase();
-  const tematica = props.origen === ''?'':props.origen;
-  const [stories, setStories] = useState([]);
-  const getStories = async () => {
-    let fetchedStories;
-    if(leyenda==='HISTORIAS NUEVAS') {
-      fetchedStories = await fetch(
-        "https://proyecto-equipo7.herokuapp.com/v1/historias/"
-      );  
-    } else {
-      fetchedStories = await fetch(
-        "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(tematica)
-      );  
-    }
-    return await fetchedStories.json();
-  };
-
-  useEffect(() => {
-    getStories().then((newStories) => {
-      setStories(newStories);
-    });
-  });
-
+function Stories({ currentCategory }) {
+  
+  const leyenda = currentCategory === undefined ?'HISTORIAS NUEVAS':"CATEGORIA ".concat(currentCategory).toUpperCase();
+  const tematica = currentCategory === ''?'':currentCategory;
+  
   return (
     <>
       <SideHistories>
         <CatTitle name={leyenda} />
       </SideHistories>
       <SideHistories2>
-        <ShowStories stories={[...stories]} />
+        <ShowStories leyenda={leyenda} tematica={tematica} itemsPerPage={5}/>
       </SideHistories2>
     </>
   );
