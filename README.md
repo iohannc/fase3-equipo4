@@ -6,14 +6,26 @@
 - Fabiola Rasgado Celaya
 - Ángel Esteban Torres Trejo
 
-## Especificaciones y Mockup
+## Especificaciones
 ### Hecho con:
+#### Front:
 - React
 - Bulma
 - styled-components
-- Mockup hecho en Figma
+- react-router-dom
+- react-paginate
+#### Back:
+![Repo del Backend](https://github.com/iohannc/equipo7-proyecto)
+- MongoDB
+- Mongoose
+- Express
+- Passport
 
-### Biblioteca de Terror
-#Proyecto:https://fase3-equipo4.netlify.app/
-#Usuario de prueba perez@gmail.com Pass 12ab__de
+# Proyecto:
+## Biblioteca del Terror
+https://fase3-equipo4.netlify.app/
+### Usuario de prueba: 
+- Email: perez@gmail.com 
+- Password: 12ab__de
+### Mockup hecho en Figma
 ![Mockup image](https://i.imgur.com/YckHCrS.png)
