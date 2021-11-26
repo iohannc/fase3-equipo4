@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate"; // Componente externo que facilita l
 import { NavLink, useHistory } from 'react-router-dom';
 // Styles
 import { StoriesS } from "./Stories.styles";
+import './pagination.scss'
 
 const ItemList = ({ item }) => {
 
@@ -95,13 +96,14 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
   return (
     <>
       <Items currentStories={currentStories} />
+      <div className='pagination is-centered'>
       <ReactPaginate
 
         // Todo esto es específico para react-paginate.
         // https://www.npmjs.com/package/react-paginate
         // ^^^ Documentación ^^^
 
-        containerClassName="pagination is-centered"
+        containerClassName="pagination-list"
         pageClassName="page-item"
         pageLinkClassName="pagination-link"
         previousLinkClassName="pagination-previous"
@@ -109,7 +111,7 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
         activeClassName="is-current"
         role="navigation"
         aria-label="pagination"
-        breakLabel="..."
+        breakLabel="{ . . . }"
         breakClassName="pagination-ellipsis"
         nextLabel="next >"
         onPageChange={handlePageClick}
@@ -118,6 +120,7 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
         previousLabel="< previous"
         renderOnZeroPageCount={null}
       />
+      </div>
     </>
   );
 };
