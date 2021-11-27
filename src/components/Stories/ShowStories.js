@@ -47,19 +47,7 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
 
   const history = useHistory();
 
-  const getStories = async () => {
-    let fetchedStories;
-    if(leyenda==='HISTORIAS NUEVAS') {
-      fetchedStories = await fetch(
-        "https://proyecto-equipo7.herokuapp.com/v1/historias/"
-      );  
-    } else {
-      fetchedStories = await fetch(
-        "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(currentCategory)
-      );  
-    }
-    return await fetchedStories.json();
-  };
+
 
   // Escucha por cambios en la url para cambiar el estado currentCategory
   // y triggerear el rerenderizado. Fue imposible utilizar otros 
@@ -75,19 +63,41 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
   // ^^^ Documentación ^^^
 
   useEffect(() => {
+    const getStories = async () => {
+        let fetchedStories;
+        if( leyenda === 'HISTORIAS NUEVAS') {
+          fetchedStories = await fetch(
+            "https://proyecto-equipo7.herokuapp.com/v1/historias/"
+          );  
+        } else {
+          fetchedStories = await fetch(
+            "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(currentCategory)
+          );  
+        }
+        return await fetchedStories.json();
+      };
     getStories().then( stories => {
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentStories(stories.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(stories.length / itemsPerPage));
-  })}, [itemOffset, itemsPerPage, currentCategory]);
+  })}, [itemOffset, itemsPerPage, currentCategory, leyenda]);
 
   const handlePageClick = (event) => {
+    const getStories = async () => {
+        let fetchedStories;
+        if(leyenda==='HISTORIAS NUEVAS') {
+          fetchedStories = await fetch(
+            "https://proyecto-equipo7.herokuapp.com/v1/historias/"
+          );  
+        } else {
+          fetchedStories = await fetch(
+            "https://proyecto-equipo7.herokuapp.com/v1/historias/buscarPorAtributo?tematica=".concat(currentCategory)
+          );  
+        }
+        return await fetchedStories.json();
+      };
     getStories().then( stories => {
     const newOffset = (event.selected * itemsPerPage) % stories.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
     })
   };
@@ -113,11 +123,11 @@ const ShowStories = ({ leyenda, tematica, itemsPerPage }) => {
         aria-label="pagination"
         breakLabel="{ . . . }"
         breakClassName="pagination-ellipsis"
-        nextLabel="next >"
+        nextLabel="Siguiente"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="Anterior"
         renderOnZeroPageCount={null}
       />
       </div>

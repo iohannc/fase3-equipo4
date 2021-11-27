@@ -5,7 +5,7 @@ const CatTitle = (props) => {
   return (
     <Title
       style={{
-        justifyContent: `${props.align == "center" ? "center" : "left"}`,
+        justifyContent: `${props.align === "center" ? "center" : "left"}`,
       }}
     >
       <h2>{props.name}</h2>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { Link, useRouteMatch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Header from "../Header/index3";
-import { GlobalStyle, Ids } from "../../GlobalStyle";
+import { GlobalStyle } from "../../GlobalStyle";
 
 // Assets
 import { TextMain, TextEdit, TextTags, TextTagsMain, ContenedorText, TextSub } from "../../GlobalStyle";
@@ -19,8 +19,6 @@ const MainHistoria = (props) => {
         // Actualiza el título del documento usando la API del navegador
         datos();
     });
-    let { path, url } = useRouteMatch();
-    console.log(url);
     let historia = useHistory();
     const cambiar = () => {
         let busq = historia.location.pathname.split("/")[2];

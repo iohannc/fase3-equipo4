@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useRouteMatch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // import SearchForm from '../SearchForm/index';
 import Header from "../Header/index4";

@@ -1,7 +1,7 @@
 import React from "react";
 // Styles
 import { Form } from "./SearchForm.styles";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const SearchForm = (props) => {
   let historia = useHistory();
   const cambiar = () => {

@@ -1,21 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ResultItem, Container, TitleBusq } from "./results.styles";
 import { Link, useParams } from "react-router-dom";
 
 function ResultBusq() {
-  let { busqueda } = useParams();
-  const [results, datosBusq] = React.useState([]);
+  const [results, datosBusq] = useState([]);
+  const { busqueda } = useParams();
+  const buscar = async () => {
+    const datos = await fetch(`https://proyecto-equipo7.herokuapp.com/v1/historias/${busqueda}`);
+    const resultados = await datos.json();
+    datosBusq(resultados);
+  }
 
   useEffect(() => {
     buscar();
-  }, [])
-
-  const buscar = async () => {
-    const datos = await fetch(`https://proyecto-equipo7.herokuapp.com/v1/historias/${busqueda}`)
-    const resultados = await datos.json();
-    datosBusq(resultados)
-    console.log(resultados)
-  }
+  },)
 
   return (
     <>

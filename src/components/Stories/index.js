@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Components
+import React from "react"; // Components
 import CatTitle from "../Title";
 import { SideHistories, SideHistories2 } from "./Stories.styles";
 

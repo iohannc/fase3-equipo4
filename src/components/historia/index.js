@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // Assets
-import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub, TextEdit } from "../../GlobalStyle";
+import { TextMain, TextSecond, TextTags, TextTagsMain, ContenedorText, TextSub } from "../../GlobalStyle";
 const MainHistoria = (props) => {
     let historia = useHistory();
     const cambiar = () => {
@@ -14,10 +14,10 @@ const MainHistoria = (props) => {
         const tematica = document.getElementById("tematica");
         const texto = document.getElementById("texto");
         const tags = document.getElementById("tags");
-        // console.log(cuerpo);
         let result = {};
-        console.log(url)
-        await fetch(url).then(async (res) => await res.json()).then((res) => {
+        fetch(url)
+        .then((res) => res.json())
+        .then((res) => {
             result = res["0"];
             console.log(result);
             document.cookie = `id=${result._id}`;
@@ -34,7 +34,6 @@ const MainHistoria = (props) => {
         let token = document.cookie.split(';').find(row => row.trim().startsWith('token='));
         let id = document.cookie.split(';').find(row => row.trim().startsWith('id='))
         const url = `https://historiasdeterror.herokuapp.com/v1/historias/${id.split("=")[1]}`;
-        let result2 = {};
         let a = false;
         await fetch(url, {
             headers: {
@@ -132,9 +131,7 @@ const MainHistoria = (props) => {
             </div>
             <div className="columns is-centered is-narrow">
                 <div className="column is-8">
-                    <TextSecond id="texto" className="is-narrow">
-                        Mucho texto xd
-                    </TextSecond>
+                    <TextSecond id="texto" className="is-narrow" />
                 </div>
             </div>
             <div className="columns is-centered">
@@ -143,15 +140,12 @@ const MainHistoria = (props) => {
                         <span className="tag is-danger">
                             <i className="fas fa-tag is-medium"></i>
                         </span>
-                        Tags
                     </TextTagsMain>
                 </div>
             </div>
             <div className="columns is-centered">
                 <div className="column is-8">
-                    <TextTags id="tagscontinuar">
-                        Tags
-                    </TextTags>
+                    <TextTags id="tagscontinuar" />
                 </div>
             </div>
         </ContenedorText>

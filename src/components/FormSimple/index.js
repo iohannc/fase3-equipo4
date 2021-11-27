@@ -6,7 +6,6 @@ const FormSimp = (props) => {
     <div className="field control">
       <input
         className="input is-small"
-        type="text"
         required
         placeholder={props.placeholder}
         id={props.id}
