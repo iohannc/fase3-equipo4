@@ -1,7 +1,6 @@
 import React from "react";
-// Components
 // Styles
-import { Wrapper, BannerCentered } from "./Banner.styles";
+import { BannerCentered } from "./Banner.styles";
 
 const Banner = (props) => {
   return (

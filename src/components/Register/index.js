@@ -12,7 +12,7 @@ function RegStep0() {
     const ap2 = document.getElementById("Apellido2").value;
     const nombre = document.getElementById("Nombre").value;
     let apellidos = ap1 + " " + ap2;
-    if (nombre != "" && ap1 != "" && ap2 != "") {
+    if (nombre !== "" && ap1 !== "" && ap2 !== "") {
       document.cookie = `apellidos=${apellidos}`;
       document.cookie = `nombre=${nombre}`;
       history.push("s1");

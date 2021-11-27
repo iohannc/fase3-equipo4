@@ -7,7 +7,7 @@ import { GlobalStyle, Columnas, H2 } from "../../GlobalStyle";
 import { Link, useHistory } from "react-router-dom";
 function RegStep1() {
   let history = useHistory();
-  const [isBlocking, setIsBlocking] = React.useState(true);
+  //const [isBlocking, setIsBlocking] = React.useState(true);
   let continuar = function () {
     function isEqual(str1, str2) {
       return str1.toUpperCase() === str2.toUpperCase()
@@ -18,7 +18,7 @@ function RegStep1() {
     const username = document.getElementById("username").value;
     document.cookie = `email=${mail}`;
     document.cookie = `user=${username}`;
-    if (isEqual(pass1, pass2) && username != pass1 && username != "" && pass1 != "" && mail != "") {
+    if (isEqual(pass1, pass2) && username !== pass1 && username !== "" && pass1 !== "" && mail !== "") {
       document.cookie = `password=${pass1}`;
       history.replace("s2");
     }

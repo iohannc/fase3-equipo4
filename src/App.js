@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // Components
 import init from "./Init";
 import login from "./login";
@@ -11,7 +11,7 @@ import results from "./components/ResultBusqueda/index"
 import categoria from "./components/SearchCategory/index"
 
 // Styles
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
     <>
