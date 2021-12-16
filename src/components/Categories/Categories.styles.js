@@ -10,6 +10,7 @@ export const CategoriesS= styled.div`
         text-align:center;
         :hover{
             color: var(--fontRedEmphasis);
+            transition: 0.5s;
         }
     }
 `;

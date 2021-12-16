@@ -100,6 +100,7 @@ export const Bloque = styled.div`
 export const Limit = styled.div`
   max-height: 10px;
 `;
+
 export const TextMain = styled.h2`
   font-weight: bold;
   font-family: "Roboto", sans-serif;

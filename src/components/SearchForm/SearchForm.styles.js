@@ -13,5 +13,10 @@ export const Form = styled.form`
     .button {
         background-color: #fff;
         color: #000;
+        :hover{
+            background-color: var(--fontRedEmphasis);
+            color: #fff;
+            transition: 0.5s;
+        }
     }
 `;

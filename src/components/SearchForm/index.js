@@ -22,7 +22,7 @@ const SearchForm = (props) => {
         </span>
       </div>
       <div className="control">
-        <button onClick={cambiar} className="button is-danger">
+        <button onClick={cambiar} className="button">
           Buscar
         </button>
       </div>

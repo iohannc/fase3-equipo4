@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.nav`
-  background-color: #000;
-  width: 100%;
+  
+  display: flex;
+  justify-content: space-between;
   font-family: "Pathway Gothic One", sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.245em;
@@ -15,9 +16,11 @@ export const Wrapper = styled.nav`
     :hover {
       color: var(--fontRedEmphasis);
       background-color: #000;
+      transition: 0.5s;
     }
   }
 `;
+
 export const Wrapper2 = styled.nav`
   background-color: #000;
   width: 100%;
